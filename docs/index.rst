@@ -14,10 +14,9 @@ See also the `Github Homepage`_ and the `Updates Blog`_
 
 .. warning::
 
-    This version of The Overviewer is being phased out. If you want to render
-    worlds for Minecraft 1.2 (the new "Anvil" format) then see the `Anvil <http://docs.overviewer.org/en/anvil/index.html>`_ docs.
-
-    Also see `this blog post <http://overviewer.org/blog/2012/03/01/anvil-support/>`_ on the topic.
+    These docs are for Overviewer version 0.4, which works with the old
+    Minecraft level format (pre MC 1.2). These docs are outdated and not
+    relevant to the current version.
 
 Introduction
 ============
