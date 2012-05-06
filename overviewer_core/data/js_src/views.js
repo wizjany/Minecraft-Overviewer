@@ -215,7 +215,7 @@ overviewer.views.GoogleMapView = Backbone.View.extend({
         var gmapCurrent = overviewer.map.getMapTypeId();
         for (id in currentWorldView.options.mapTypeIds) {
             if (currentWorldView.options.mapTypeIds[id] == gmapCurrent) {
-                this.options.currentTileSet = currentWorldView.model.get("tileSets").at(id);
+                this.options.currentTileSet = currentWorldView.options.mapTypes[id];
             }
         }
 
