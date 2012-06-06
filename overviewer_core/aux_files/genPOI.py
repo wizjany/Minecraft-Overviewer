@@ -74,7 +74,7 @@ def handlePlayers(rset, render, worldpath):
         playername = playerfile.split(".")[0]
         if isSinglePlayer:
             playername = 'Player'
-        if data['Dimension'] == dimension:
+        if data.get('Dimension',0) == dimension:
             # Position at last logout
             data['id'] = "Player"
             data['EntityId'] = playername
