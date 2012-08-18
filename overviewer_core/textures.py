@@ -79,6 +79,7 @@ class Textures(object):
 
         # TFC - load image files
         self.TFC_images_rock = self._split_terrain(self.load_image("terraRock.png"))
+        self.TFC_images_blocks1 = self._split_terrain(self.load_image("terraBlocks.png"))
         
         # generate biome grass mask
         self.biome_grass_texture = self.build_block(self.terrain_images[0], self.terrain_images[38])
@@ -3872,5 +3873,160 @@ def TFC_smoothMM(self, blockid, data):
         texture = self.TFC_images_rock[126]
     elif data == 5: # marble
         texture = self.TFC_images_rock[127]
+
+    return self.build_block(texture, texture)
+
+#TFC logs
+@material(blockid=17, data=range(16), solid=True) # overrides vanilla
+def TFC_log(self, blockid, data):
+    if data == 0: # oak
+        texBase = 128
+    elif data == 1: # aspen
+        texBase = 129
+    elif data == 2: # birch
+        texBase = 130
+    elif data == 3: # chesnut
+        texBase = 131
+    elif data == 4: # douglas fir
+        texBase = 132
+    elif data == 5: # hickory
+        texBase = 133
+    elif data == 6: # maple
+        texBase = 134
+    elif data == 7: # ash
+        texBase = 135
+    elif data == 8: # pine
+        texBase = 136
+    elif data == 9: # sequoia
+        texBase = 137
+    elif data == 10: # spruce
+        texBase = 138
+    elif data == 11: # sycamore
+        texBase = 139
+    elif data == 12: # white cedar
+        texBase = 140
+    elif data == 13: # white elm
+        texBase = 141
+    elif data == 14: # willow
+        texBase = 142
+    elif data == 15: # kapok
+        texBase = 143
+
+    texSide = self.TFC_images_blocks1[texBase]
+    texTop = self.TFC_images_blocks1[texBase+16]
+
+    return self.build_block(texTop, texSide)
+
+#TFC planks
+@material(blockid=5, data=range(16), solid=True) # overrides vanilla
+def TFC_plank(self, blockid, data):
+    if data == 0: # oak
+        texture = self.TFC_images_blocks1[176]
+    elif data == 1: # aspen
+        texture = self.TFC_images_blocks1[177]
+    elif data == 2: # birch
+        texture = self.TFC_images_blocks1[178]
+    elif data == 3: # chesnut
+        texture = self.TFC_images_blocks1[179]
+    elif data == 4: # douglas fir
+        texture = self.TFC_images_blocks1[180]
+    elif data == 5: # hickory
+        texture = self.TFC_images_blocks1[181]
+    elif data == 6: # maple
+        texture = self.TFC_images_blocks1[182]
+    elif data == 7: # ash
+        texture = self.TFC_images_blocks1[183]
+    elif data == 8: # pine
+        texture = self.TFC_images_blocks1[184]
+    elif data == 9: # sequoia
+        texture = self.TFC_images_blocks1[185]
+    elif data == 10: # spruce
+        texture = self.TFC_images_blocks1[186]
+    elif data == 11: # sycamore
+        texture = self.TFC_images_blocks1[187]
+    elif data == 12: # white cedar
+        texture = self.TFC_images_blocks1[188]
+    elif data == 13: # white elm
+        texture = self.TFC_images_blocks1[189]
+    elif data == 14: # willow
+        texture = self.TFC_images_blocks1[190]
+    elif data == 15: # kapok
+        texture = self.TFC_images_blocks1[191]
+    
+    return self.build_block(texture, texture)
+
+#TFC saplings
+@material(blockid=6, data=range(16), transparent=True) # overrides vanilla
+def TFC_sapling(self, blockid, data):
+    if data == 0: # oak
+        texture = self.TFC_images_blocks1[160]
+    elif data == 1: # aspen
+        texture = self.TFC_images_blocks1[161]
+    elif data == 2: # birch
+        texture = self.TFC_images_blocks1[162]
+    elif data == 3: # chesnut
+        texture = self.TFC_images_blocks1[163]
+    elif data == 4: # douglas fir
+        texture = self.TFC_images_blocks1[164]
+    elif data == 5: # hickory
+        texture = self.TFC_images_blocks1[165]
+    elif data == 6: # maple
+        texture = self.TFC_images_blocks1[166]
+    elif data == 7: # ash
+        texture = self.TFC_images_blocks1[167]
+    elif data == 8: # pine
+        texture = self.TFC_images_blocks1[168]
+    elif data == 9: # sequoia
+        texture = self.TFC_images_blocks1[169]
+    elif data == 10: # spruce
+        texture = self.TFC_images_blocks1[170]
+    elif data == 11: # sycamore
+        texture = self.TFC_images_blocks1[171]
+    elif data == 12: # white cedar
+        texture = self.TFC_images_blocks1[172]
+    elif data == 13: # white elm
+        texture = self.TFC_images_blocks1[173]
+    elif data == 14: # willow
+        texture = self.TFC_images_blocks1[174]
+    elif data == 15: # kapok
+        texture = self.TFC_images_blocks1[175]
+
+    return self.build_sprite(texture)
+
+#TFC leaves
+@material(blockid=18, data=range(16), transparent=True, solid=False)
+def TFC_leaves(self, blockid, data):
+    if data == 0: # oak
+        texture = self.TFC_images_blocks1[96]
+    elif data == 1: # aspen
+        texture = self.TFC_images_blocks1[97]
+    elif data == 2: # birch
+        texture = self.TFC_images_blocks1[98]
+    elif data == 3: # chesnut
+        texture = self.TFC_images_blocks1[99]
+    elif data == 4: # douglas fir
+        texture = self.TFC_images_blocks1[100]
+    elif data == 5: # hickory
+        texture = self.TFC_images_blocks1[101]
+    elif data == 6: # maple
+        texture = self.TFC_images_blocks1[102]
+    elif data == 7: # ash
+        texture = self.TFC_images_blocks1[103]
+    elif data == 8: # pine
+        texture = self.TFC_images_blocks1[104]
+    elif data == 9: # sequoia
+        texture = self.TFC_images_blocks1[105]
+    elif data == 10: # spruce
+        texture = self.TFC_images_blocks1[106]
+    elif data == 11: # sycamore
+        texture = self.TFC_images_blocks1[107]
+    elif data == 12: # white cedar
+        texture = self.TFC_images_blocks1[108]
+    elif data == 13: # white elm
+        texture = self.TFC_images_blocks1[109]
+    elif data == 14: # willow
+        texture = self.TFC_images_blocks1[110]
+    elif data == 15: # kapok
+        texture = self.TFC_images_blocks1[111]
 
     return self.build_block(texture, texture)
