@@ -80,6 +80,7 @@ class Textures(object):
         # TFC - load image files
         self.TFC_images_rock = self._split_terrain(self.load_image("terraRock.png"))
         self.TFC_images_blocks1 = self._split_terrain(self.load_image("terraBlocks.png"))
+        self.TFC_images_blocks2 = self._split_terrain(self.load_image("terraBlocks2.png"))
         
         # generate biome grass mask
         self.biome_grass_texture = self.build_block(self.terrain_images[0], self.terrain_images[38])
@@ -96,7 +97,7 @@ class Textures(object):
         if self.texture_size != 24:
             # rescale biome grass
             self.biome_grass_texture = self.biome_grass_texture.resize(self.texture_dimensions, Image.ANTIALIAS)
-            
+
             # rescale the rest
             for i, tex in enumerate(blockmap):
                 if tex is None:
@@ -3599,434 +3600,164 @@ def cocoa_plant(self, blockid, data):
 # TFC stone:  Igneous Intrusive
 @material(blockid=209, data=range(3), solid=True)
 def TFC_rockIgInt(self, blockid, data):
-    if data == 0: # granite
-        texture = self.TFC_images_rock[0]
-    elif data == 1: # diorite
-        texture = self.TFC_images_rock[1]
-    elif data == 2: # gabbro
-        texture = self.TFC_images_rock[2]
-
+    texture = self.TFC_images_rock[0+data]
     return self.build_block(texture, texture)
 
 # TFC stone: Sedimentary
 @material(blockid=210, data=range(10), solid=True)
 def TFC_rockSed(self, blockid, data):
-    if data == 0: # siltstone
-        texture = self.TFC_images_rock[64]
-    elif data == 1: # mudstone
-        texture = self.TFC_images_rock[65]
-    elif data == 2: # shale
-        texture = self.TFC_images_rock[66]
-    elif data == 3: # claystone
-        texture = self.TFC_images_rock[67]
-    elif data == 4: # rock salt
-        texture = self.TFC_images_rock[68]
-    elif data == 5: # limestone
-        texture = self.TFC_images_rock[69]
-    elif data == 6: # conglomerate
-        texture = self.TFC_images_rock[70]
-    elif data == 7: # dolomite
-        texture = self.TFC_images_rock[71]
-    elif data == 8: # chert
-        texture = self.TFC_images_rock[72]
-    elif data == 9: # chalk
-        texture = self.TFC_images_rock[73]
-
+    texture = self.TFC_images_rock[64+data]
     return self.build_block(texture, texture)
 
 # TFC stone: Igneous Extrusive
 @material(blockid=211, data=range(4), solid=True)
 def TFC_rockIgExt(self, blockid, data):
-    if data == 0: # rhyolite
-        texture = self.TFC_images_rock[3]
-    elif data == 1: # basalt
-        texture = self.TFC_images_rock[4]
-    elif data == 2: # andesite
-        texture = self.TFC_images_rock[5]
-    elif data == 3: # dacite
-        texture = self.TFC_images_rock[6]
-
+    texture = self.TFC_images_rock[3+data]
     return self.build_block(texture, texture)
 
 #TFC stone: Metamorphic
 @material(blockid=212, data=range(6), solid=True)
 def TFC_rockMM(self, blockid, data):
-    if data == 0: # quartzite
-        texture = self.TFC_images_rock[74]
-    elif data == 1: # slate
-        texture = self.TFC_images_rock[75]
-    elif data == 2: # phyllite
-        texture = self.TFC_images_rock[76]
-    elif data == 3: # schist
-        texture = self.TFC_images_rock[77]
-    elif data == 4: # gneiss
-        texture = self.TFC_images_rock[78]
-    elif data == 5: # marble
-        texture = self.TFC_images_rock[79]
-
+    texture = self.TFC_images_rock[74+data]
     return self.build_block(texture, texture)
 
 # TFC cobble:  Igneous Intrusive
 @material(blockid=198, data=range(3), solid=True)
 def TFC_cobbleIgInt(self, blockid, data):
-    if data == 0: # granite
-        texture = self.TFC_images_rock[16]
-    elif data == 1: # diorite
-        texture = self.TFC_images_rock[17]
-    elif data == 2: # gabbro
-        texture = self.TFC_images_rock[18]
-
+    texture = self.TFC_images_rock[16+data]
     return self.build_block(texture, texture)
 
 # TFC cobble: Sedimentary
 @material(blockid=199, data=range(10), solid=True)
 def TFC_cobbleSed(self, blockid, data):
-    if data == 0: # siltstone
-        texture = self.TFC_images_rock[80]
-    elif data == 1: # mudstone
-        texture = self.TFC_images_rock[81]
-    elif data == 2: # shale
-        texture = self.TFC_images_rock[82]
-    elif data == 3: # claystone
-        texture = self.TFC_images_rock[83]
-    elif data == 4: # rock salt
-        texture = self.TFC_images_rock[84]
-    elif data == 5: # limestone
-        texture = self.TFC_images_rock[85]
-    elif data == 6: # conglomerate
-        texture = self.TFC_images_rock[86]
-    elif data == 7: # dolomite
-        texture = self.TFC_images_rock[87]
-    elif data == 8: # chert
-        texture = self.TFC_images_rock[88]
-    elif data == 9: # chalk
-        texture = self.TFC_images_rock[89]
-
+    texture = self.TFC_images_rock[80+data]
     return self.build_block(texture, texture)
 
 # TFC cobble: Igneous Extrusive
 @material(blockid=200, data=range(4), solid=True)
 def TFC_cobbleIgExt(self, blockid, data):
-    if data == 0: # rhyolite
-        texture = self.TFC_images_rock[19]
-    elif data == 1: # basalt
-        texture = self.TFC_images_rock[20]
-    elif data == 2: # andesite
-        texture = self.TFC_images_rock[21]
-    elif data == 3: # dacite
-        texture = self.TFC_images_rock[22]
-
+    texture = self.TFC_images_rock[19+data]
     return self.build_block(texture, texture)
 
 #TFC cobble: Metamorphic
 @material(blockid=201, data=range(6), solid=True)
 def TFC_cobbleMM(self, blockid, data):
-    if data == 0: # quartzite
-        texture = self.TFC_images_rock[90]
-    elif data == 1: # slate
-        texture = self.TFC_images_rock[91]
-    elif data == 2: # phyllite
-        texture = self.TFC_images_rock[92]
-    elif data == 3: # schist
-        texture = self.TFC_images_rock[93]
-    elif data == 4: # gneiss
-        texture = self.TFC_images_rock[94]
-    elif data == 5: # marble
-        texture = self.TFC_images_rock[95]
-
+    texture = self.TFC_images_rock[90+data]
     return self.build_block(texture, texture)
 
 # TFC brick:  Igneous Intrusive
 @material(blockid=186, data=range(3), solid=True)
 def TFC_brickIgInt(self, blockid, data):
-    if data == 0: # granite
-        texture = self.TFC_images_rock[32]
-    elif data == 1: # diorite
-        texture = self.TFC_images_rock[33]
-    elif data == 2: # gabbro
-        texture = self.TFC_images_rock[34]
-
+    texture = self.TFC_images_rock[32+data]
     return self.build_block(texture, texture)
 
 # TFC brick: Sedimentary
 @material(blockid=187, data=range(10), solid=True)
 def TFC_brickSed(self, blockid, data):
-    if data == 0: # siltstone
-        texture = self.TFC_images_rock[96]
-    elif data == 1: # mudstone
-        texture = self.TFC_images_rock[97]
-    elif data == 2: # shale
-        texture = self.TFC_images_rock[98]
-    elif data == 3: # claystone
-        texture = self.TFC_images_rock[99]
-    elif data == 4: # rock salt
-        texture = self.TFC_images_rock[100]
-    elif data == 5: # limestone
-        texture = self.TFC_images_rock[101]
-    elif data == 6: # conglomerate
-        texture = self.TFC_images_rock[102]
-    elif data == 7: # dolomite
-        texture = self.TFC_images_rock[103]
-    elif data == 8: # chert
-        texture = self.TFC_images_rock[104]
-    elif data == 9: # chalk
-        texture = self.TFC_images_rock[105]
-
+    texture = self.TFC_images_rock[96+data]
     return self.build_block(texture, texture)
 
 # TFC brick: Igneous Extrusive
 @material(blockid=188, data=range(4), solid=True)
 def TFC_brickIgExt(self, blockid, data):
-    if data == 0: # rhyolite
-        texture = self.TFC_images_rock[35]
-    elif data == 1: # basalt
-        texture = self.TFC_images_rock[36]
-    elif data == 2: # andesite
-        texture = self.TFC_images_rock[37]
-    elif data == 3: # dacite
-        texture = self.TFC_images_rock[38]
-
+    texture = self.TFC_images_rock[35+data]
     return self.build_block(texture, texture)
 
 #TFC brick: Metamorphic
 @material(blockid=189, data=range(6), solid=True)
 def TFC_brickMM(self, blockid, data):
-    if data == 0: # quartzite
-        texture = self.TFC_images_rock[106]
-    elif data == 1: # slate
-        texture = self.TFC_images_rock[107]
-    elif data == 2: # phyllite
-        texture = self.TFC_images_rock[108]
-    elif data == 3: # schist
-        texture = self.TFC_images_rock[109]
-    elif data == 4: # gneiss
-        texture = self.TFC_images_rock[110]
-    elif data == 5: # marble
-        texture = self.TFC_images_rock[111]
-
+    texture = self.TFC_images_rock[106+data]
     return self.build_block(texture, texture)
 
 # TFC smooth:  Igneous Intrusive
 @material(blockid=182, data=range(3), solid=True)
 def TFC_smoothIgInt(self, blockid, data):
-    if data == 0: # granite
-        texture = self.TFC_images_rock[48]
-    elif data == 1: # diorite
-        texture = self.TFC_images_rock[49]
-    elif data == 2: # gabbro
-        texture = self.TFC_images_rock[50]
-
+    texture = self.TFC_images_rock[48+data]
     return self.build_block(texture, texture)
 
 # TFC smooth: Sedimentary
 @material(blockid=183, data=range(10), solid=True)
 def TFC_smoothSed(self, blockid, data):
-    if data == 0: # siltstone
-        texture = self.TFC_images_rock[112]
-    elif data == 1: # mudstone
-        texture = self.TFC_images_rock[113]
-    elif data == 2: # shale
-        texture = self.TFC_images_rock[114]
-    elif data == 3: # claystone
-        texture = self.TFC_images_rock[115]
-    elif data == 4: # rock salt
-        texture = self.TFC_images_rock[116]
-    elif data == 5: # limestone
-        texture = self.TFC_images_rock[117]
-    elif data == 6: # conglomerate
-        texture = self.TFC_images_rock[118]
-    elif data == 7: # dolomite
-        texture = self.TFC_images_rock[119]
-    elif data == 8: # chert
-        texture = self.TFC_images_rock[120]
-    elif data == 9: # chalk
-        texture = self.TFC_images_rock[121]
-
+    texture = self.TFC_images_rock[112+data]
     return self.build_block(texture, texture)
 
 # TFC smooth: Igneous Extrusive
 @material(blockid=184, data=range(4), solid=True)
 def TFC_smoothIgExt(self, blockid, data):
-    if data == 0: # rhyolite
-        texture = self.TFC_images_rock[51]
-    elif data == 1: # basalt
-        texture = self.TFC_images_rock[52]
-    elif data == 2: # andesite
-        texture = self.TFC_images_rock[53]
-    elif data == 3: # dacite
-        texture = self.TFC_images_rock[54]
-
+    texture = self.TFC_images_rock[51+data]
     return self.build_block(texture, texture)
 
 #TFC smooth: Metamorphic
 @material(blockid=185, data=range(6), solid=True)
 def TFC_smoothMM(self, blockid, data):
-    if data == 0: # quartzite
-        texture = self.TFC_images_rock[122]
-    elif data == 1: # slate
-        texture = self.TFC_images_rock[123]
-    elif data == 2: # phyllite
-        texture = self.TFC_images_rock[124]
-    elif data == 3: # schist
-        texture = self.TFC_images_rock[125]
-    elif data == 4: # gneiss
-        texture = self.TFC_images_rock[126]
-    elif data == 5: # marble
-        texture = self.TFC_images_rock[127]
-
+    texture = self.TFC_images_rock[122+data]
     return self.build_block(texture, texture)
 
 #TFC logs
 @material(blockid=17, data=range(16), solid=True) # overrides vanilla
 def TFC_log(self, blockid, data):
-    if data == 0: # oak
-        texBase = 128
-    elif data == 1: # aspen
-        texBase = 129
-    elif data == 2: # birch
-        texBase = 130
-    elif data == 3: # chesnut
-        texBase = 131
-    elif data == 4: # douglas fir
-        texBase = 132
-    elif data == 5: # hickory
-        texBase = 133
-    elif data == 6: # maple
-        texBase = 134
-    elif data == 7: # ash
-        texBase = 135
-    elif data == 8: # pine
-        texBase = 136
-    elif data == 9: # sequoia
-        texBase = 137
-    elif data == 10: # spruce
-        texBase = 138
-    elif data == 11: # sycamore
-        texBase = 139
-    elif data == 12: # white cedar
-        texBase = 140
-    elif data == 13: # white elm
-        texBase = 141
-    elif data == 14: # willow
-        texBase = 142
-    elif data == 15: # kapok
-        texBase = 143
-
-    texSide = self.TFC_images_blocks1[texBase]
-    texTop = self.TFC_images_blocks1[texBase+16]
-
+    texSide = self.TFC_images_blocks1[128+data]
+    texTop = self.TFC_images_blocks1[128+16+data]
     return self.build_block(texTop, texSide)
 
 #TFC planks
 @material(blockid=5, data=range(16), solid=True) # overrides vanilla
 def TFC_plank(self, blockid, data):
-    if data == 0: # oak
-        texture = self.TFC_images_blocks1[176]
-    elif data == 1: # aspen
-        texture = self.TFC_images_blocks1[177]
-    elif data == 2: # birch
-        texture = self.TFC_images_blocks1[178]
-    elif data == 3: # chesnut
-        texture = self.TFC_images_blocks1[179]
-    elif data == 4: # douglas fir
-        texture = self.TFC_images_blocks1[180]
-    elif data == 5: # hickory
-        texture = self.TFC_images_blocks1[181]
-    elif data == 6: # maple
-        texture = self.TFC_images_blocks1[182]
-    elif data == 7: # ash
-        texture = self.TFC_images_blocks1[183]
-    elif data == 8: # pine
-        texture = self.TFC_images_blocks1[184]
-    elif data == 9: # sequoia
-        texture = self.TFC_images_blocks1[185]
-    elif data == 10: # spruce
-        texture = self.TFC_images_blocks1[186]
-    elif data == 11: # sycamore
-        texture = self.TFC_images_blocks1[187]
-    elif data == 12: # white cedar
-        texture = self.TFC_images_blocks1[188]
-    elif data == 13: # white elm
-        texture = self.TFC_images_blocks1[189]
-    elif data == 14: # willow
-        texture = self.TFC_images_blocks1[190]
-    elif data == 15: # kapok
-        texture = self.TFC_images_blocks1[191]
-    
+    texture = self.TFC_images_blocks1[176+data]
     return self.build_block(texture, texture)
 
 #TFC saplings
 @material(blockid=6, data=range(16), transparent=True) # overrides vanilla
 def TFC_sapling(self, blockid, data):
-    if data == 0: # oak
-        texture = self.TFC_images_blocks1[160]
-    elif data == 1: # aspen
-        texture = self.TFC_images_blocks1[161]
-    elif data == 2: # birch
-        texture = self.TFC_images_blocks1[162]
-    elif data == 3: # chesnut
-        texture = self.TFC_images_blocks1[163]
-    elif data == 4: # douglas fir
-        texture = self.TFC_images_blocks1[164]
-    elif data == 5: # hickory
-        texture = self.TFC_images_blocks1[165]
-    elif data == 6: # maple
-        texture = self.TFC_images_blocks1[166]
-    elif data == 7: # ash
-        texture = self.TFC_images_blocks1[167]
-    elif data == 8: # pine
-        texture = self.TFC_images_blocks1[168]
-    elif data == 9: # sequoia
-        texture = self.TFC_images_blocks1[169]
-    elif data == 10: # spruce
-        texture = self.TFC_images_blocks1[170]
-    elif data == 11: # sycamore
-        texture = self.TFC_images_blocks1[171]
-    elif data == 12: # white cedar
-        texture = self.TFC_images_blocks1[172]
-    elif data == 13: # white elm
-        texture = self.TFC_images_blocks1[173]
-    elif data == 14: # willow
-        texture = self.TFC_images_blocks1[174]
-    elif data == 15: # kapok
-        texture = self.TFC_images_blocks1[175]
-
+    texture = self.TFC_images_blocks1[160+data]
     return self.build_sprite(texture)
 
 #TFC leaves
 @material(blockid=18, data=range(16), transparent=True, solid=False)
 def TFC_leaves(self, blockid, data):
-    if data == 0: # oak
-        texture = self.TFC_images_blocks1[96]
-    elif data == 1: # aspen
-        texture = self.TFC_images_blocks1[97]
-    elif data == 2: # birch
-        texture = self.TFC_images_blocks1[98]
-    elif data == 3: # chesnut
-        texture = self.TFC_images_blocks1[99]
-    elif data == 4: # douglas fir
-        texture = self.TFC_images_blocks1[100]
-    elif data == 5: # hickory
-        texture = self.TFC_images_blocks1[101]
-    elif data == 6: # maple
-        texture = self.TFC_images_blocks1[102]
-    elif data == 7: # ash
-        texture = self.TFC_images_blocks1[103]
-    elif data == 8: # pine
-        texture = self.TFC_images_blocks1[104]
-    elif data == 9: # sequoia
-        texture = self.TFC_images_blocks1[105]
-    elif data == 10: # spruce
-        texture = self.TFC_images_blocks1[106]
-    elif data == 11: # sycamore
-        texture = self.TFC_images_blocks1[107]
-    elif data == 12: # white cedar
-        texture = self.TFC_images_blocks1[108]
-    elif data == 13: # white elm
-        texture = self.TFC_images_blocks1[109]
-    elif data == 14: # willow
-        texture = self.TFC_images_blocks1[110]
-    elif data == 15: # kapok
-        texture = self.TFC_images_blocks1[111]
-
+    texture = self.TFC_images_blocks1[96+data]
     return self.build_block(texture, texture)
+
+#TFC dirt
+@material(blockid=190, data=range(16), solid=True)
+def TFC_dirt1(self, blockid, data):
+    tex = self.TFC_images_blocks2[112+data]
+    return self.build_block(tex, tex)
+
+#TFC dirt 2
+@material(blockid=191, data=range(8), solid=True)
+def TFC_dirt2(self, blockid, data):
+    tex = self.TFC_images_blocks2[128+data]
+    return self.build_block(tex, tex)
+
+#TFC grass
+@material(blockid=196, data=range(16), solid=True)
+def TFC_grass1(self, blockid, data):
+    side_img = self.TFC_images_blocks2[112+data]
+    img = self.build_block(self.TFC_images_blocks2[255], side_img)
+    alpha_over(img, self.biome_grass_texture, (0, 0), self.biome_grass_texture)
+    return img
+
+#TFC grass 2
+@material(blockid=197, data=range(8), solid=True)
+def TFC_grass2(self, blockid, data):
+    side_img = self.TFC_images_blocks2[128+data]
+    img = self.build_block(self.TFC_images_blocks2[255], side_img)
+    alpha_over(img, self.biome_grass_texture, (0, 0), self.biome_grass_texture)
+    return img
+
+#TFC farmland
+@material(blockid=177, data=range(16), solid=True)
+def TFC_farmland(self, blockid, data):
+    tex = self.TFC_images_blocks2[176+data]
+    side = self.TFC_images_blocks2[112+data]
+    return self.build_block(tex, side)
+
+#TFC farmland 2
+@material(blockid=176, data=range(8), solid=True)
+def TFC_farmland2(self, blockid, data):
+    if data == 7: # peat special case
+        data = 0 # use default tex
+    tex = self.TFC_images_blocks2[192+data]
+    side = self.TFC_images_blocks2[128+data]
+    return self.build_block(tex, side)
