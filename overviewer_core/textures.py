@@ -3756,8 +3756,52 @@ def TFC_farmland(self, blockid, data):
 #TFC farmland 2
 @material(blockid=176, data=range(8), solid=True)
 def TFC_farmland2(self, blockid, data):
-    if data == 7: # peat special case
-        data = 0 # use default tex
+    if data == 7:## peat special case
+        data = 0 ## use default tex
     tex = self.TFC_images_blocks2[192+data]
     side = self.TFC_images_blocks2[128+data]
     return self.build_block(tex, side)
+
+#TFC peat
+@material(blockid=180, solid=True)
+def TFC_peat(self, blockid, data):
+    tex = self.TFC_images_blocks2[135]
+    return self.build_block(tex, tex)
+
+#TFC peat grass
+@material(blockid=181, solid=True)
+def TFC_peatGrass(self, blockid, data):
+    side_img = self.TFC_images_blocks2[135]
+    img = self.build_block(self.TFC_images_blocks2[255], side_img)
+    alpha_over(img, self.biome_grass_texture, (0, 0), self.biome_grass_texture)
+    return img
+
+#TFC clay
+@material(blockid=192, data=range(16), solid=True)
+def TFC_clay(self, blockid, data):
+    tex = self.TFC_images_blocks2[144+data]
+    return self.build_block(tex, tex)
+
+#TFC clay 2
+@material(blockid=193, data=range(8), solid=True)
+def TFC_clay2(self, blockid, data):
+    tex = self.TFC_images_blocks2[160+data]
+    return self.build_block(tex, tex)
+
+#TFC clay grass
+@material(blockid=194, data=range(16), solid=True)
+def TFC_clayGrass(self, blockid, data):
+    side_img = self.TFC_images_blocks2[144+data]
+    img = self.build_block(self.TFC_images_blocks2[255], side_img)
+    alpha_over(img, self.biome_grass_texture, (0, 0), self.biome_grass_texture)
+    return img
+
+#TFC clay grass 2
+@material(blockid=195, data=range(8), solid=True)
+def TFC_clayGrass2(self, blockid, data):
+    if data == 7:##peat special case
+        data = 0 ##use default tex
+    side_img = self.TFC_images_blocks2[160+data]
+    img = self.build_block(self.TFC_images_blocks2[255], side_img)
+    alpha_over(img, self.biome_grass_texture, (0, 0), self.biome_grass_texture)
+    return img

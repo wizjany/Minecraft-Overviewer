@@ -144,7 +144,7 @@ base_draw(void *data, RenderState *state, PyObject *src, PyObject *mask, PyObjec
     if (/* grass, but not snowgrass */
         (state->block == 2 && get_data(state, BLOCKS, state->x, state->y+1, state->z) != 78) ||
         /* TFC grass */
-        state->block == 196 || state->block == 197 ||
+        state->block == 181 || state->block == 194 || state->block == 195 || state->block == 196 || state->block == 197 ||
         /* water */
         state->block == 8 || state->block == 9 ||
         /* leaves */
@@ -165,13 +165,16 @@ base_draw(void *data, RenderState *state, PyObject *src, PyObject *mask, PyObjec
         PyObject *color_table = NULL;
         unsigned char flip_xy = 0;
         
-        if (state->block == 2 || state->block == 196 || state->block == 197) {
+        if (state->block == 2 || state->block == 181 || state->block == 194 || state->block == 195 || state->block == 196 || state->block == 197) {
             /* grass needs a special facemask */
             facemask = self->grass_texture;
         }
 
         switch (state->block) {
         case 2:
+        case 181:
+        case 194:
+        case 195:
         case 196:
         case 197:
             /* grass */
